@@ -1,0 +1,92 @@
+#include <iostream>
+#include <math.h>
+#include <stdio.h>
+#define PI 3.1415926535
+class Ellipsoid {
+    public:
+    void SmejMerid(){
+        float x=5723499;
+        float y=-120943.74218;
+        float B=51.645531327*PI/180;
+        float L=25.860968960*PI/180;
+        float Lvost=33*PI/180;
+        float L0=27*PI/180;;
+        float lmalsleva=L-L0;
+        float lmalsprava=L-Lvost;
+        float kontrol=(lmalsleva-lmalsprava)*180/PI;
+        float N=6392676;
+        float cos2B=cos(B)*cos(B);
+        float l2=lmalsprava*lmalsprava;
+        float a0=32140.404-(135.3302-(0.7092-0.004*cos2B)*cos2B)*cos2B;
+        float a4=(0.25+0.00252*cos2B)*cos2B-0.04166;
+        float a6=(0.166*cos2B-0.084)*cos2B;
+        float a3=(0.3333333+0.00123*cos2B)*cos2B-0.1666667;
+        float a5=0.0083-(0.1667-(0.1968+0.004*cos2B)*cos2B)*cos2B;
+        float xm=6367558.4969*B-(a0-(0.5+(a4+a6*l2)*l2)*l2*N)*sin(B)*cos(B);
+        float ym=(1+(a3+a5*l2)*l2)*lmalsprava*N*cos(B);
+        printf("\n\n----------ЗАДАНИЕ НОМЕР 1. Переход от одного осевого меридиана зоны к другому в проекции Гаусса - Крюгера----------\n\n");
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА Врад\n\n%.9f",B);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА lrad\n\n%.9f",lmalsprava);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА sinB\n\n%.9f",sin(B));
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА cosB\n\n%.9f",cos(B));
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА cos2B\n\n%.9f",cos2B);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА sinBcosB\n\n%.9f",sin(B)*cos(B));
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА l2\n\n%.9f",l2);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА N\n\n%.9f",N);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА N l2\n\n%.9f",N*l2);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА a0\n\n%.9f",a0);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА a4\n\n%.9f",a4);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА a6\n\n%.9f",a6);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА a3\n\n%.9f",a3);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА a5\n\n%.9f",a5);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА 6367558.4969*B\n\n%.9f",6367558.4969*B);
+        printf("\n\nЗНАЧЕНИЕ ПЛОСКОЙ КООРДИНАТЫ x В МЕТРАХ\n\n----------\n\n%.9f\n\n----------\n\n",xm);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА 1+(a3+a5*l2)*l2\n\n%.9f",1+(a3+a5*l2)*l2);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА N*l*cos(B)\n\n%.9f",N*lmalsprava*cos(B));
+        printf("\n\nЗНАЧЕНИЕ ПЛОСКОЙ КООРДИНАТЫ y В МЕТРАХ\n\n----------\n\n%.9f\n\n-----------\n\n",ym);
+        printf("\n\n----------ЗАДАНИЕ НОМЕР 2. КОНТРОЛЬ ПОЛУЧЕННЫХ ВЫЧИСЛЕНИЙ----------\n\n");
+        float betta=(xm/6368558.4969);
+        float cos2bet=cos(betta)*cos(betta);
+        float des=0.0000000001;
+        float Bx=betta+(50221746+(293622+(2350+22*cos2bet)*cos2bet)*cos2bet)*sin(betta)*cos(betta)*des;
+        float cos2Bx=cos(Bx)*cos(Bx);
+        float z=ym/N*cos(Bx);
+        float z2=z*z;
+        float b2=(0.5+0.003369*cos2Bx)*sin(Bx)*cos(Bx);
+        float b3=0.333333-(0.166667-0.001123*cos2Bx)*cos2Bx;
+        float b4=0.25+(0.16161+0.00562*cos2Bx)*cos2Bx;
+        float b5=0.2-(0.1667-0.0088*cos2Bx)*cos2Bx;
+        float Bnov=Bx-(1-(b4-0.12*z2)*z2)*z2*b2;
+        float lnov=(2.7-(b3-b5*z2)*z2)*z;
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА betta rad\n\n%.9f",betta);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА sin betta \n\n%.9f",sin(betta));
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА sin2 betta \n\n%.9f",sin(betta)*sin(betta));
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА cos2 betta \n\n%.9f",cos2bet);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА sinbetta*cosbetta\n\n%.9f",sin(betta)*cos(betta));
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА Bxrad\n\n%.9f",Bx);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА N\n\n%.9f",N);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА cos2Bx\n\n%.9f",cos2Bx);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА cosBx\n\n%.9f",cos(Bx));
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА N*cosBx\n\n%.9f",N*cos(Bx));
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА z\n\n%.9f",z);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА z2\n\n%.9f",z2);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА b2\n\n%.9f",b2);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА b4\n\n%.9f",b4);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА b3\n\n%.9f",b3);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА b5\n\n%.9f",b5);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА z2b2\n\n%.9f",z2*b2);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА Bnovrad \n\n%.9f",Bnov);
+        printf("\n\nЗНАЧЕНИЕ УГЛА  B В ДЕСЯТИЧНЫХ ГРАДУСАХ \n\n----------\n\n%.9f\n\n----------",Bnov*180/PI);
+        printf("\n\n\n\nЗНАЧЕНИЕ ПАРАМЕТРА lnovrad\n\n%.9f",lnov);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА lsec\n\n%.9f",lnov*180/PI*3600);
+        printf("\n\nЗНАЧЕНИЕ ПАРАМЕТРА lmal\n\n%.9f",lnov*180/PI);
+        printf("\n\n\n\nЗНАЧЕНИЕ УГЛА L0 В ДЕСЯТИЧНЫХ ГРАДУСАХ \n\n----------\n\n%.9f\n\n----------\n\n",33+(lnov*180/PI));
+    };
+    
+};
+int main() {
+    printf("\n\nЛАБОРАТОРНАЯ РАБОТА НОМЕР 7. ВАРИАНТ 3.\n\n");
+    Ellipsoid Krassovskogo;
+    Krassovskogo.SmejMerid();
+    return 0;
+}

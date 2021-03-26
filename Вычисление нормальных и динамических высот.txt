@@ -1,0 +1,346 @@
+#include <iostream>
+#include <math.h>
+#include <stdio.h>
+#define PI 3.1415926535
+class Variant {
+    public:
+    void zadanie1(){
+        /* rep295;
+         rep296;
+         rep294;
+         rep15;
+         rep23;
+         rep297;
+         rep295;*/
+        float Brep15=49.383*PI/180;
+        float UrGeoNumrep15=54.692757;//kGal
+        float GravForcerep15=980994;//mGal
+        float anomalGravForcerep15=0;//mGal
+        float gravimAnomHrep15=48.7;//mGal
+        float geodeticHrep15=103.8285;//m
+        float Brep23=48.95*PI/180;
+        float UrGeoNumrep23=279.52853;//kGal
+        float GravForcerep23=980895;//mGal
+        float anomalGravForcerep23=18;//mGal
+        float gravimAnomHrep23=50.25;//mGal
+        float geodeticHrep23=99.2834;//m
+        float Brep294=49.5*PI/180;
+        float UrGeoNumrep294=82.374504;//kGal
+        float GravForcerep294=981039.5;//mGal
+        float anomalGravForcerep294=8;//mGal
+        float gravimAnomHrep294=50.3;//mGal
+        float geodeticHrep294=133.8175;//m
+        float Brep295=49.3*PI/180;
+        float UrGeoNumrep295=56.697378;//kGal
+        float GravForcerep295=981043.7;//mGal
+        float anomalGravForcerep295=25;//mGal
+        float gravimAnomHrep295=49.7;//mGal
+        float geodeticHrep295=106.9007;//m
+        float Brep296=49.85*PI/180;
+        float UrGeoNumrep296=27.209295;//kGal
+        float GravForcerep296=981031.1;//mGal
+        float anomalGravForcerep296=18;//mGal
+        float gravimAnomHrep296=49.2;//mGal
+        float geodeticHrep296=76.3286;//m
+        float Brep297=49*PI/180;
+        float UrGeoNumrep297=33.094652;//kGal
+        float GravForcerep297=981005.4;//mGal
+        float anomalGravForcerep297=12;//mGal
+        float gravimAnomHrep297=50.5;//mGal
+        float geodeticHrep297=83.6509;//m
+        float prev296_295=-30.0484;
+        float prev294_296=56.2003;
+        float prev15_294=-28.2244;
+        float prev23_15=-6.3207;
+        float prev297_23=-15.6928;
+        float prev295_297=24.0567;
+        float sekcia296_295=95.97;
+        float sekcia294_296=109.89;
+        float sekcia15_294=36;
+        float sekcia23_15=95.06;
+        float sekcia297_23=9;
+        float sekcia295_297=59.03;
+        printf("\n\n-----ЗАДАНИЕ НОМЕР 1. ВЫЧИСЛЕНИЕ ГЕОПОТЕНЦИАЛЬНОГО ЧИСЛА-----\n\n");
+        float raznpot296_295=GravForcerep295/1000000*prev296_295;
+        float raznpot294_296=GravForcerep294/1000000*prev294_296;
+        float raznpot15_294=GravForcerep15/1000000*prev15_294;
+        float raznpot23_15=GravForcerep23/1000000*prev23_15;
+        float raznpot297_23=GravForcerep297/1000000*prev297_23;
+        float raznpot295_297=GravForcerep295/1000000*prev295_297;
+        float sumraznpot=raznpot296_295+raznpot294_296+raznpot15_294+raznpot23_15+raznpot297_23+raznpot295_297;
+        float raznpot296_295ur=raznpot296_295-sumraznpot/7;
+        float raznpot294_296ur=raznpot294_296-sumraznpot/7;
+        float raznpot15_294ur=raznpot15_294-sumraznpot/7;
+        float raznpot23_15ur=raznpot23_15-sumraznpot/7;
+        float raznpot297_23ur=raznpot297_23-sumraznpot/7;
+        float raznpot295_297ur=raznpot295_297-sumraznpot/7;
+        float GeoNum296=UrGeoNumrep295+raznpot296_295ur;
+        float GeoNum294=GeoNum296+raznpot294_296ur;
+        float GeoNum15=GeoNum294+raznpot15_294ur;
+        float GeoNum23=GeoNum15+raznpot23_15ur;
+        float GeoNum297=GeoNum23+raznpot297_23ur;
+        float GeoNum295=GeoNum297+raznpot295_297ur;
+        float sumprev=prev296_295+prev294_296+prev15_294+prev23_15+prev297_23+prev295_297;
+        float sumraznpotur=raznpot296_295ur+raznpot294_296ur+raznpot15_294ur+raznpot23_15ur+raznpot297_23ur+raznpot295_297ur;
+        printf("\n\nЗначение параметра разности потенциалов W1-W1 при реперах 296 295\n\n%.9f\n\n",raznpot296_295);
+        printf("\n\nЗначение параметра разности потенциалов W1-W1 при реперах 294 296\n\n%.9f\n\n",raznpot294_296);
+        printf("\n\nЗначение параметра разности потенциалов W1-W1 при реперах 15 294\n\n%.9f\n\n",raznpot15_294);
+        printf("\n\nЗначение параметра разности потенциалов W1-W1 при реперах 23 15\n\n%.9f\n\n",raznpot23_15);
+        printf("\n\nЗначение параметра разности потенциалов W1-W1 при реперах 297 23\n\n%.9f\n\n",raznpot297_23);
+        printf("\n\nЗначение параметра разности потенциалов W1-W1 при реперах 295 297\n\n%.9f\n\n",raznpot295_297);
+        printf("\n\nЗначение параметра уравненной разности потенциалов W1-W2 при реперах 296 295\n\n%.9f\n\n",raznpot296_295ur);
+        printf("\n\nЗначение параметра уравненной разности потенциалов W1-W2 при реперах 294 296\n\n%.9f\n\n",raznpot294_296ur);
+        printf("\n\nЗначение параметра уравненной разности потенциалов W1-W2 при реперах 15 294\n\n%.9f\n\n",raznpot15_294ur);
+        printf("\n\nЗначение параметра уравненной разности потенциалов W1-W2 при реперах 23 15\n\n%.9f\n\n",raznpot23_15ur);
+        printf("\n\nЗначение параметра уравненной разности потенциалов W1-W2 при реперах 297 23\n\n%.9f\n\n",raznpot297_23ur);
+        printf("\n\nЗначение параметра уравненной разности потенциалов W1-W2 при реперах 295 297\n\n%.9f\n\n",raznpot295_297ur);
+        printf("\n\nЗначение параметра геопотенциального числа W0-W при репере 295\n\n%.9f\n\n",UrGeoNumrep295);
+        printf("\n\nЗначение параметра геопотенциального числа W0-W при репере 296\n\n%.9f\n\n",GeoNum296);
+        printf("\n\nЗначение параметра геопотенциального числа W0-W при репере 294\n\n%.9f\n\n",GeoNum294);
+        printf("\n\nЗначение параметра геопотенциального числа W0-W при репере 15\n\n%.9f\n\n",GeoNum15);
+        printf("\n\nЗначение параметра геопотенциального числа W0-W при репере 23\n\n%.9f\n\n",GeoNum23);
+        printf("\n\nЗначение параметра геопотенциального числа W0-W при репере 297\n\n%.9f\n\n",GeoNum297);
+        printf("\n\nЗначение параметра геопотенциального числа W0-W при репере 295 контрольное\n\n%.9f\n\n",GeoNum295);
+        printf("\n\nЗначение параметра суммы превышений\n\n%.9f\n\n",sumprev);
+        printf("\n\nЗначение параметра суммы разности потенциалов\n\n%.9f\n\n",sumraznpot);
+        printf("\n\nЗначение параметра суммы уравненной разности потенциалов\n\n%.9f\n\n",sumraznpotur);
+        printf("\n\n-----ЗАДАНИЕ НОМЕР 2. ВЫЧИСЛЕНИЕ НОРМАЛЬНОЙ И ДИНАМИЧЕСКОЙ ВЫСОТЫ-----\n\n");
+        float normHpervrep295=GeoNum295*GravForcerep295/1000000;
+        float normHpervrep296=GeoNum296*GravForcerep296/1000000;
+        float normHpervrep294=GeoNum294*GravForcerep294/1000000;
+        float normHpervrep15=GeoNum15*GravForcerep15/1000000;
+        float normHpervrep23=GeoNum23*GravForcerep23/1000000;
+        float normHpervrep297=GeoNum297*GravForcerep297/1000000;
+        float normHvtorrep295=GeoNum295/(GravForcerep295-0.15443*normHpervrep295)*1000000;
+        float normHvtorrep296=GeoNum296/(GravForcerep296-0.15443*normHpervrep296)*1000000;
+        float normHvtorrep294=GeoNum294/(GravForcerep294-0.15443*normHpervrep294)*1000000;
+        float normHvtorrep15=GeoNum15/(GravForcerep15-0.15443*normHpervrep15)*1000000;
+        float normHvtorrep23=GeoNum23/(GravForcerep23-0.15443*normHpervrep23)*1000000;
+        float normHvtorrep297=GeoNum297/(GravForcerep297-0.15443*normHpervrep297)*1000000;
+        float dinamHrep295=GeoNum295/GravForcerep295*1000000;
+        float dinamHrep296=GeoNum296/GravForcerep296*1000000;
+        float dinamHrep294=GeoNum294/GravForcerep294*1000000;
+        float dinamHrep15=GeoNum15/GravForcerep15*1000000;
+        float dinamHrep23=GeoNum23/GravForcerep23*1000000;
+        float dinamHrep297=GeoNum297/GravForcerep297*1000000;
+        float raznostH295=(dinamHrep295-normHvtorrep295)*1000;
+        float raznostH296=(dinamHrep296-normHvtorrep296)*1000;
+        float raznostH294=(dinamHrep294-normHvtorrep294)*1000;
+        float raznostH15=(dinamHrep15-normHvtorrep15)*1000;
+        float raznostH23=(dinamHrep23-normHvtorrep23)*1000;
+        float raznostH297=(dinamHrep297-normHvtorrep297)*1000;
+        printf("\n\nЗначение параметра нормальной высоты репера 295 в первом приближении\n\n%.9f\n\n",normHpervrep295);
+        printf("\n\nЗначение параметра нормальной высоты репера 296 в первом приближении\n\n%.9f\n\n",normHpervrep296);
+        printf("\n\nЗначение параметра нормальной высоты репера 294 в первом приближении\n\n%.9f\n\n",normHpervrep294);
+        printf("\n\nЗначение параметра нормальной высоты репера 15 в первом приближении\n\n%.9f\n\n",normHpervrep15);
+        printf("\n\nЗначение параметра нормальной высоты репера 23 в первом приближении\n\n%.9f\n\n",normHpervrep23);
+        printf("\n\nЗначение параметра нормальной высоты репера 297 в первом приближении\n\n%.9f\n\n",normHpervrep297);
+        printf("\n\nЗначение параметра нормальной высоты репера 295 во втором приближении\n\n%.9f\n\n",normHvtorrep295);
+        printf("\n\nЗначение параметра нормальной высоты репера 296 во втором приближении\n\n%.9f\n\n",normHvtorrep296);
+        printf("\n\nЗначение параметра нормальной высоты репера 294 во втором приближении\n\n%.9f\n\n",normHvtorrep294);
+        printf("\n\nЗначение параметра нормальной высоты репера 15 во втором приближении\n\n%.9f\n\n",normHvtorrep15);
+        printf("\n\nЗначение параметра нормальной высоты репера 23 во втором приближении\n\n%.9f\n\n",normHvtorrep23);
+        printf("\n\nЗначение параметра нормальной высоты репера 297 во втором приближении\n\n%.9f\n\n",normHvtorrep297);
+        printf("\n\nЗначение параметра динамической высоты репера 295\n\n%.9f\n\n",dinamHrep295);
+        printf("\n\nЗначение параметра динамической высоты репера 296\n\n%.9f\n\n",dinamHrep296);
+        printf("\n\nЗначение параметра динамической высоты репера 294\n\n%.9f\n\n",dinamHrep294);
+        printf("\n\nЗначение параметра динамической высоты репера 15\n\n%.9f\n\n",dinamHrep15);
+        printf("\n\nЗначение параметра динамической высоты репера 23\n\n%.9f\n\n",dinamHrep23);
+        printf("\n\nЗначение параметра динамической высоты репера 297\n\n%.9f\n\n",dinamHrep297);
+        printf("\n\nЗначение параметра разности динамической высоты и нормальной высоты репера 295 в мм\n\n%.9f\n\n",raznostH295);
+        printf("\n\nЗначение параметра разности динамической высоты и нормальной высоты репера 296 в мм\n\n%.9f\n\n",raznostH296);
+        printf("\n\nЗначение параметра разности динамической высоты и нормальной высоты репера 294 в мм\n\n%.9f\n\n",raznostH294);
+        printf("\n\nЗначение параметра разности динамической высоты и нормальной высоты репера 15 в мм\n\n%.9f\n\n",raznostH15);
+        printf("\n\nЗначение параметра разности динамической высоты и нормальной высоты репера 23 в мм\n\n%.9f\n\n",raznostH23);
+        printf("\n\nЗначение параметра разности динамической высоты и нормальной высоты репера 297 в мм\n\n%.9f\n\n",raznostH297);
+        printf("\n\n-----ЗАДАНИЕ НОМЕР 3. ВЫЧИСЛЕНИЕ ТЕОРЕТИЧЕСКОЙ СУММЫ ПРЕВЫШЕНИЙ-----\n\n");
+        float gm296_295=(GravForcerep296+GravForcerep295)/2;
+        float gm294_296=(GravForcerep294+GravForcerep296)/2;
+        float gm15_294=(GravForcerep15+GravForcerep294)/2;
+        float gm23_15=(GravForcerep23+GravForcerep15)/2;
+        float gm297_23=(GravForcerep297+GravForcerep23)/2;
+        float gm295_297=(GravForcerep295+GravForcerep297)/2;
+        float g0=gm23_15;
+        float rep295_9800000=1043.7;
+        float rep296_9800000=1031.1;
+        float rep294_9800000=1039.5;
+        float rep15_9800000=994;
+        float rep23_9800000=895;
+        float rep297_9800000=1005.4;
+        float rep295kontrol_9800000=1043.7;
+        float gm_g0_296_295=gm296_295-g0;
+        float gm_g0_294_296=gm294_296-g0;
+        float gm_g0_15_294=gm15_294-g0;
+        float gm_g0_23_15=gm23_15-g0;
+        float gm_g0_297_23=gm297_23-g0;
+        float gm_g0_295_297=gm295_297-g0;
+        //вывод превышений
+        float gm_g0_h_g0_296_295=gm_g0_296_295*prev296_295/g0;
+        float gm_g0_h_g0_294_296=gm_g0_294_296*prev294_296/g0;
+        float gm_g0_h_g0_15_294=gm_g0_15_294*prev15_294/g0;
+        float gm_g0_h_g0_23_15=gm_g0_23_15*prev23_15/g0;
+        float gm_g0_h_g0_297_23=gm_g0_297_23*prev297_23/g0;
+        float gm_g0_h_g0_295_297=gm_g0_295_297*prev295_297/g0;
+        float sumgmg0=gm_g0_h_g0_296_295+gm_g0_h_g0_294_296+gm_g0_h_g0_15_294+gm_g0_h_g0_23_15+gm_g0_h_g0_297_23+gm_g0_h_g0_295_297;
+        float urprev296_295=prev296_295+sumgmg0/7;
+        float urprev294_296=prev294_296+sumgmg0/7;
+        float urprev15_294=prev15_294+sumgmg0/7;
+        float urprev23_15=prev23_15+sumgmg0/7;
+        float urprev297_23=prev297_23+sumgmg0/7;
+        float urprev295_297=prev295_297+sumgmg0/7;
+        float sumurprev=urprev296_295+urprev294_296+urprev15_294+urprev23_15+urprev297_23+urprev295_297;
+        float fh=sumprev+sumurprev;
+        printf("\n\nЗначение параметра gm при реперах 296 295\n\n%.9f\n\n",gm296_295);
+        printf("\n\nЗначение параметра gm при реперах 294 296\n\n%.9f\n\n",gm294_296);
+        printf("\n\nЗначение параметра gm при реперах 15 294\n\n%.9f\n\n",gm15_294);
+        printf("\n\nЗначение параметра gm при реперах 23 15\n\n%.9f\n\n",gm23_15);
+        printf("\n\nЗначение параметра gm при реперах 297 23\n\n%.9f\n\n",gm297_23);
+        printf("\n\nЗначение параметра gm при реперах 295 297\n\n%.9f\n\n",gm295_297);
+        printf("\n\nЗначение параметра gm-g0 при реперах 296 295\n\n%.9f\n\n",gm_g0_296_295);
+        printf("\n\nЗначение параметра gm-g0 при реперах 294 296\n\n%.9f\n\n",gm_g0_294_296);
+        printf("\n\nЗначение параметра gm-g0 при реперах 15 294\n\n%.9f\n\n",gm_g0_15_294);
+        printf("\n\nЗначение параметра gm-g0 при реперах 23 15\n\n%.9f\n\n",gm_g0_23_15);
+        printf("\n\nЗначение параметра gm-g0 при реперах 297 23\n\n%.9f\n\n",gm_g0_297_23);
+        printf("\n\nЗначение параметра gm-g0 при реперах 295 297\n\n%.9f\n\n",gm_g0_295_297);
+        printf("\n\nЗначение превышения при реперах 296 295\n\n%.9f\n\n",prev296_295);
+        printf("\n\nЗначение превышения при реперах 294 296\n\n%.9f\n\n",prev294_296);
+        printf("\n\nЗначение превышения при реперах 15 294\n\n%.9f\n\n",prev15_294);
+        printf("\n\nЗначение превышения при реперах 23 15\n\n%.9f\n\n",prev23_15);
+        printf("\n\nЗначение превышения при реперах 297 23\n\n%.9f\n\n",prev297_23);
+        printf("\n\nЗначение превышения при реперах 295 297\n\n%.9f\n\n",prev295_297);
+        printf("\n\nЗначение параметра (gm-g0)*h/g0 при реперах 296 295\n\n%.9f\n\n",gm_g0_h_g0_296_295);
+        printf("\n\nЗначение параметра (gm-g0)*h/g0 при реперах 294 296\n\n%.9f\n\n",gm_g0_h_g0_294_296);
+        printf("\n\nЗначение параметра (gm-g0)*h/g0 при реперах 15 294\n\n%.9f\n\n",gm_g0_h_g0_15_294);
+        printf("\n\nЗначение параметра (gm-g0)*h/g0 при реперах 23 15\n\n%.9f\n\n",gm_g0_h_g0_23_15);
+        printf("\n\nЗначение параметра (gm-g0)*h/g0 при реперах 297 23\n\n%.9f\n\n",gm_g0_h_g0_297_23);
+        printf("\n\nЗначение параметра (gm-g0)*h/g0 при реперах 295 297\n\n%.9f\n\n",gm_g0_h_g0_295_297);
+        printf("\n\nЗначение уравненного превышения при реперах 296 295\n\n%.9f\n\n",urprev296_295);
+        printf("\n\nЗначение уравненного превышения при реперах 294 296\n\n%.9f\n\n",urprev294_296);
+        printf("\n\nЗначение уравненного превышения при реперах 15 294\n\n%.9f\n\n",urprev15_294);
+        printf("\n\nЗначение уравненного превышения при реперах 23 15\n\n%.9f\n\n",urprev23_15);
+        printf("\n\nЗначение уравненного превышения при реперах 297 23\n\n%.9f\n\n",urprev297_23);
+        printf("\n\nЗначение уравненного превышения при реперах 295 297\n\n%.9f\n\n",urprev295_297);
+        printf("\n\nЗначение параметра суммы (gm-g0)*h/g0\n\n%.9f\n\n",sumgmg0);
+        printf("\n\nЗначение параметра суммы уравненных превышений\n\n%.9f\n\n",sumurprev);
+        printf("\n\nЗначение параметра невязки\n\n%.9f\n\n",fh);
+        printf("\n\n-----ЗАДАНИЕ НОМЕР 4. ВЫЧИСЛЕНИЕ РАЗНОСТИ НОРМАЛЬНЫХ ВЫСОТ-----\n\n");
+        float srAnomalrep296_295=(anomalGravForcerep296+anomalGravForcerep295)/2;
+        float srAnomalrep294_296=(anomalGravForcerep294+anomalGravForcerep296)/2;
+        float srAnomalrep15_294=(anomalGravForcerep15+anomalGravForcerep294)/2;
+        float srAnomalrep23_15=(anomalGravForcerep23+anomalGravForcerep15)/2;
+        float srAnomalrep297_23=(anomalGravForcerep297+anomalGravForcerep23)/2;
+        float srAnomalrep295_297=(anomalGravForcerep295+anomalGravForcerep297)/2;
+        float srNormGravForcerep296_295=GravForcerep296-GravForcerep295;
+        float srNormGravForcerep294_296=GravForcerep294-GravForcerep296;
+        float srNormGravForcerep15_294=GravForcerep15-GravForcerep294;
+        float srNormGravForcerep23_15=GravForcerep23-GravForcerep15;
+        float srNormGravForcerep297_23=GravForcerep297-GravForcerep23;
+        float srNormGravForcerep295_297=GravForcerep295-GravForcerep297;
+        float popravRaznNormH=sumurprev/7;
+        float RaznNormH296_295=normHvtorrep296-normHvtorrep295+popravRaznNormH;
+        float RaznNormH294_296=normHvtorrep294-normHvtorrep296+popravRaznNormH;
+        float RaznNormH15_294=normHvtorrep15-normHvtorrep294+popravRaznNormH;
+        float RaznNormH23_15=normHvtorrep23-normHvtorrep15+popravRaznNormH;
+        float RaznNormH297_23=normHvtorrep297-normHvtorrep23+popravRaznNormH;
+        float RaznNormH295_297=normHvtorrep295-normHvtorrep297+popravRaznNormH;
+        float rezH295=dinamHrep295;
+        float rezH296=rezH295+RaznNormH296_295;
+        float rezH294=rezH296+RaznNormH294_296;
+        float rezH15=rezH294+RaznNormH15_294;
+        float rezH23=rezH15+RaznNormH23_15;
+        float rezH297=rezH23+RaznNormH297_23;
+        float rezH295kontrol=rezH297+RaznNormH295_297;
+        printf("\n\nЗначение параметра средней аномалии силы тяжести при реперах 296 295\n\n%.9f\n\n",srAnomalrep296_295);
+        printf("\n\nЗначение параметра средней аномалии силы тяжести при реперах 294 296\n\n%.9f\n\n",srAnomalrep294_296);
+        printf("\n\nЗначение параметра средней аномалии силы тяжести при реперах 15 294\n\n%.9f\n\n",srAnomalrep15_294);
+        printf("\n\nЗначение параметра средней аномалии силы тяжести при реперах 23 15\n\n%.9f\n\n",srAnomalrep23_15);
+        printf("\n\nЗначение параметра средней аномалии силы тяжести при реперах 297 23\n\n%.9f\n\n",srAnomalrep297_23);
+        printf("\n\nЗначение параметра средней аномалии силы тяжести при реперах 295 297\n\n%.9f\n\n",srAnomalrep295_297);
+        printf("\n\nЗначение средней нормальной силы тяжести при реперах 296 295\n\n%.9f\n\n",srNormGravForcerep296_295);
+        printf("\n\nЗначение средней нормальной силы тяжести при реперах 294 296\n\n%.9f\n\n",srNormGravForcerep294_296);
+        printf("\n\nЗначение средней нормальной силы тяжести при реперах 15 294\n\n%.9f\n\n",srNormGravForcerep15_294);
+        printf("\n\nЗначение средней нормальной силы тяжести при реперах 23 15\n\n%.9f\n\n",srNormGravForcerep23_15);
+        printf("\n\nЗначение средней нормальной силы тяжести при реперах 297 23\n\n%.9f\n\n",srNormGravForcerep297_23);
+        printf("\n\nЗначение средней нормальной силы тяжести при реперах 295 297\n\n%.9f\n\n",srNormGravForcerep295_297);
+        printf("\n\nЗначение параметра поправки в превышение\n\n%.9f\n\n",popravRaznNormH);
+        printf("\n\nЗначение параметра разности нормальных высот при реперах 296 295\n\n%.9f\n\n",RaznNormH296_295);
+        printf("\n\nЗначение параметра разности нормальных высот при реперах 294 296\n\n%.9f\n\n",RaznNormH294_296);
+        printf("\n\nЗначение параметра разности нормальных высот при реперах 15 294\n\n%.9f\n\n",RaznNormH15_294);
+        printf("\n\nЗначение параметра разности нормальных высот при реперах 23 15\n\n%.9f\n\n",RaznNormH23_15);
+        printf("\n\nЗначение параметра разности нормальных высот при реперах 297 23\n\n%.9f\n\n",RaznNormH297_23);
+        printf("\n\nЗначение параметра разности нормальных высот при реперах 295 297\n\n%.9f\n\n",RaznNormH295_297);
+        printf("\n\nЗначение нормальной высоты репера 295\n\n%.9f\n\n",rezH295);
+        printf("\n\nЗначение нормальной высоты репера 296\n\n%.9f\n\n",rezH296);
+        printf("\n\nЗначение нормальной высоты репера 294\n\n%.9f\n\n",rezH294);
+        printf("\n\nЗначение нормальной высоты репера 15\n\n%.9f\n\n",rezH15);
+        printf("\n\nЗначение нормальной высоты репера 23\n\n%.9f\n\n",rezH23);
+        printf("\n\nЗначение нормальной высоты репера 297\n\n%.9f\n\n",rezH297);
+        printf("\n\nЗначение нормальной высоты репера 295 с контролем\n\n%.9f\n\n",rezH295kontrol);
+        printf("\n\n-----ЗАДАНИЕ НОМЕР 5. СПУТНИКОВОЕ НИВЕЛИРОВАНИЕ-----\n\n");
+        //полигон состоит из реперов 15 23 297 295
+        float Hcrep15=geodeticHrep15-gravimAnomHrep15;
+        float Hcrep23=geodeticHrep23-gravimAnomHrep23;
+        float Hcrep295=geodeticHrep295-gravimAnomHrep295;
+        float Hcrep297=geodeticHrep297-gravimAnomHrep297;
+        float Hm_Hcrep15=rezH15-Hcrep15;
+        float Hm_Hcrep23=rezH23-Hcrep23;
+        float Hm_Hcrep295=rezH295-Hcrep295;
+        float Hm_Hcrep297=rezH297-Hcrep297;
+        float Lrep15=0;
+        float Lrep23=95.06;
+        float Lrep297=95.06+9;
+        float Lrep295=Lrep297+59.03;
+        float k=(Hm_Hcrep15+Hm_Hcrep295)/Lrep295;
+        float Hm_Hcrep15int=Hm_Hcrep15+k*Lrep15;
+        float Hm_Hcrep23int=Hm_Hcrep23+k*Lrep23;
+        float Hm_Hcrep295int=Hm_Hcrep295+k*Lrep295;
+        float Hm_Hcrep297int=Hm_Hcrep297+k*Lrep297;
+        float Hrep15int=Hcrep15+Hm_Hcrep15int;
+        float Hrep23int=Hcrep23+Hm_Hcrep23int;
+        float Hrep297int=Hcrep297+Hm_Hcrep297int;
+        float Hrep295int=Hcrep295+Hm_Hcrep295int;
+        float delHrep15=Hm_Hcrep15-Hm_Hcrep15int;
+        float delHrep23=Hm_Hcrep23-Hm_Hcrep23int;
+        float delHrep297=Hm_Hcrep297-Hm_Hcrep297int;
+        float delHrep295=Hm_Hcrep295-Hm_Hcrep295int;
+        printf("\n\nЗначение параметра Hc репера 15\n\n%.9f\n\n",Hcrep15);
+        printf("\n\nЗначение параметра Hc репера 23\n\n%.9f\n\n",Hcrep23);
+        printf("\n\nЗначение параметра Hc репера 295\n\n%.9f\n\n",Hcrep295);
+        printf("\n\nЗначение параметра Hc репера 297\n\n%.9f\n\n",Hcrep297);
+        printf("\n\nЗначение параметра разности высот Молоденского и нормальной спутниковой высоты репера 15\n\n%.9f\n\n",Hm_Hcrep15);
+        printf("\n\nЗначение параметра разности высот Молоденского и нормальной спутниковой высоты репера 23\n\n%.9f\n\n",Hm_Hcrep23);
+        printf("\n\nЗначение параметра разности высот Молоденского и нормальной спутниковой высоты репера 295\n\n%.9f\n\n",Hm_Hcrep295);
+        printf("\n\nЗначение параметра разности высот Молоденского и нормальной спутниковой высоты репера 297\n\n%.9f\n\n",Hm_Hcrep297);
+        printf("\n\nЗначение параметра расстояния от репера 15 до репера 15\n\n%.9f\n\n",Lrep15);
+        printf("\n\nЗначение параметра расстояния от репера 15 до репера 23\n\n%.9f\n\n",Lrep23);
+        printf("\n\nЗначение параметра расстояния от репера 15 до репера 297\n\n%.9f\n\n",Lrep297);
+        printf("\n\nЗначение параметра расстояния от репера 15 до репера 295\n\n%.9f\n\n",Lrep295);
+        printf("\n\nЗначение параметра k\n\n%.9f\n\n",k);
+        printf("\n\nЗначение параметра интерполированной разности высоты Молоденского и нормальной спутниковой высоты репера 15\n\n%.9f\n\n",Hm_Hcrep15int);
+        printf("\n\nЗначение параметра интерполированной разности высоты Молоденского и нормальной спутниковой высоты репера 23\n\n%.9f\n\n",Hm_Hcrep23int);
+        printf("\n\nЗначение параметра интерполированной разности высоты Молоденского и нормальной спутниковой высоты репера 295\n\n%.9f\n\n",Hm_Hcrep295int);
+        printf("\n\nЗначение параметра интерполированной разности высоты Молоденского и нормальной спутниковой высоты репера 297\n\n%.9f\n\n",Hm_Hcrep297int);
+        printf("\n\nЗначение параметра интерполированной высоты Молоденского репера 15\n\n%.9f\n\n",Hrep15int);
+        printf("\n\nЗначение параметра интерполированной высоты Молоденского репера 23\n\n%.9f\n\n",Hrep23int);
+        printf("\n\nЗначение параметра интерполированной высоты Молоденского репера 295\n\n%.9f\n\n",Hrep295int);
+        printf("\n\nЗначение параметра интерполированной высоты Молоденского репера 297\n\n%.9f\n\n",Hrep297int);
+        printf("\n\nЗначение параметра разности высот, полученных из геометрического нивелирования и высоты Молоденского для репера 15\n\n%.9f\n\n",delHrep15);
+        printf("\n\nЗначение параметра разности высот, полученных из геометрического нивелирования и высоты Молоденского для репера 23\n\n%.9f\n\n",delHrep23);
+        printf("\n\nЗначение параметра разности высот, полученных из геометрического нивелирования и высоты Молоденского для репера 297\n\n%.9f\n\n",delHrep297);
+        printf("\n\nЗначение параметра разности высот, полученных из геометрического нивелирования и высоты Молоденского для репера 295\n\n%.9f\n\n",delHrep295);
+        printf("\n\n-----ЗАДАНИЕ НОМЕР 6. ОЦЕНКА ТОЧНОСТИ-----\n\n");
+        float slychoshgeomniv=fh/sqrt(sekcia296_295+sekcia294_296+sekcia15_294+sekcia23_15+sekcia297_23+sekcia295_297);
+        float MHc=sqrt(((delHrep23*delHrep23)+(delHrep297*delHrep297)+(delHrep295*delHrep295))/3);
+        float slychoshspytniv=MHc/sqrt(Lrep23+Lrep297+Lrep295);
+        printf("\n\nЗначение случайной ошибки геометрического нивелирования в миллиметрах\n\n%.6f\n\n",slychoshgeomniv*1000);
+        printf("\n\nЗначение точности спутникового нивелирования в метрах\n\n%.6f\n\n",MHc);
+        printf("\n\nЗначение случайной ошибки спутникового нивелирования в сантиметрах\n\n%.6f\n\n",slychoshspytniv*100);
+    };
+};
+int main() {
+    using namespace std;
+    cout<<"\n\n-------Практическая работа номер 10. Вычисление нормальных и динамических высот. Вариант номер 3.-------\n\n";
+    Variant nomer3;
+    nomer3.zadanie1();
+    return 0;
+}

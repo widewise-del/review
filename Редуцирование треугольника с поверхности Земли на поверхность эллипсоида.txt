@@ -1,0 +1,103 @@
+#include <iostream>
+#include <math.h>
+#include <stdio.h>
+#define PI 3.1415926535
+#define eks2WGS 0.0067396606
+#define aWGS 6378137
+class Ellipsoid {
+    public:
+  void reducirovanie() {
+    float Aac=110.5*PI/180;
+    float S=45924.432;
+    float Bm=55*PI/180;
+    float ugA=62.212624*PI/180;
+    float ugB=50.338977*PI/180;
+    float ugC=67.449816*PI/180;
+    float Ha=2650.3;
+    float Hb=2341.4;
+    float Hc=1600.3;
+    float Zab=90.3166*PI/180;
+    float Zac=90.7666*PI/180;
+    float Zbc=90.35*PI/180;
+    float Zba=89.6666*PI/180;
+    float Zca=89.2333*PI/180;
+    float Zcb=89.7*PI/180;
+    float Aab=45.3333*PI/180;
+    Aac=Aac;
+    float Abc=175*PI/180;
+    float Aba=225.3333*PI/180;
+    float Aca=287.55*PI/180;
+    float Acb=355*PI/180;
+    float ksiA=-0.00686111*PI/180;
+    float ksiB=-0.00375*PI/180;
+    float ksiC=-0.004*PI/180;
+    float njuA=0.005*PI/180;
+    float njuB=0.00677778*PI/180;
+    float njuC=-0.00027778*PI/180;
+    float k12=((206265*eks2WGS)/(2*aWGS));
+    float k1=k12*PI/180;
+    float v1AB=(njuA*cos(Aab)-ksiA*sin(Aab))*(1/tan(Zab));
+    float v1AC=(njuA*cos(Aac)-ksiA*sin(Aac))*(1/tan(Zac));
+    float v2AB=k1*Ha*cos(Bm)*cos(Bm)*sin(2*Aab)/1000;
+    float v2AC=k1*Ha*cos(Bm)*cos(Bm)*sin(2*Aac)/1000;
+    float v1BC=(njuB*cos(Abc)-ksiB*sin(Abc))*(1/tan(Zbc));
+    float v1BA=(njuB*cos(Aba)-ksiB*sin(Aba))*(1/tan(Zba));
+    float v2BC=k1*Hb*cos(Bm)*cos(Bm)*sin(2*Abc)/100;
+    float v2BA=k1*Hb*cos(Bm)*cos(Bm)*sin(2*Aba)/1000;
+    float v1CA=(njuC*cos(Aca)-ksiC*sin(Aca))*(1/tan(Zca));
+    float v1CB=(njuC*cos(Acb)-ksiC*sin(Acb))*(1/tan(Zcb));
+    float v2CA=k1*Hc*cos(Bm)*cos(Bm)*sin(2*Aca)/1000;
+    float v2CB=k1*Hc*cos(Bm)*cos(Bm)*sin(2*Acb)/100;
+    float deltaA=v1AB+v2AB+v1AC+v2AC;
+    float deltaB=v1BC+v2BC+v1BA+v2BA;
+    float deltaC=v1CA+v2CA+v1CB+v2CB;
+    float spugA=ugA+deltaA;
+    float spugB=ugB+deltaB;
+    float spugC=ugC+deltaC;
+    float sumDelta=deltaA+deltaB+deltaC;
+    float sumUG=ugA+ugB+ugC;
+    float sumSPHERUG=spugA+spugB+spugC;
+    printf("\n\n-------РЕДУЦИРОВАНИЕ УГЛОВ-------\n\n");
+    printf("ЗНАЧЕНИЕ ПОПРАВКИ v1AB В СЕКУНДАХ\n\n%.3f\n\n",v1AB*180/PI*3600);
+    printf("ЗНАЧЕНИЕ ПОПРАВКИ v1AC В СЕКУНДАХ\n\n%.3f\n\n",v1AC*180/PI*3600);
+    printf("ЗНАЧЕНИЕ ПОПРАВКИ v2AB В СЕКУНДАХ\n\n%.3f\n\n",v2AB*180/PI*3600);
+    printf("ЗНАЧЕНИЕ ПОПРАВКИ v2AC В СЕКУНДАХ\n\n%.3f\n\n",v2AC*180/PI*3600);
+    printf("ЗНАЧЕНИЕ ПОПРАВКИ v1BC В СЕКУНДАХ\n\n%.3f\n\n",v1BC*180/PI*3600);
+    printf("ЗНАЧЕНИЕ ПОПРАВКИ v1BA В СЕКУНДАХ\n\n%.3f\n\n",v1BA*180/PI*3600);
+    printf("ЗНАЧЕНИЕ ПОПРАВКИ v2BC В СЕКУНДАХ\n\n%.3f\n\n",v2BC*180/PI*3600);
+    printf("ЗНАЧЕНИЕ ПОПРАВКИ v2BA В СЕКУНДАХ\n\n%.3f\n\n",v2BA*180/PI*3600);
+    printf("ЗНАЧЕНИЕ ПОПРАВКИ v1CA В СЕКУНДАХ\n\n%.3f\n\n",v1CA*180/PI*3600);
+    printf("ЗНАЧЕНИЕ ПОПРАВКИ v1CB В СЕКУНДАХ\n\n%.3f\n\n",v1CB*180/PI*3600);
+    printf("ЗНАЧЕНИЕ ПОПРАВКИ v2CA В СЕКУНДАХ\n\n%.3f\n\n",v2CA*180/PI*3600);
+    printf("ЗНАЧЕНИЕ ПОПРАВКИ v2CB В СЕКУНДАХ\n\n%.3f\n\n",v2CB*180/PI*3600);
+    printf("ЗНАЧЕНИЕ ПАРАМЕТРА deltaA\n\n%.3f\n\n",deltaA*180/PI*3600);
+    printf("ЗНАЧЕНИЕ ПАРАМЕТРА deltaB\n\n%.3f\n\n",deltaB*180/PI*3600);
+    printf("ЗНАЧЕНИЕ ПАРАМЕТРА deltaC\n\n%.3f\n\n",deltaC*180/PI*3600);
+    printf("ЗНАЧЕНИЕ СФЕРИЧЕСКОГО УГЛА A\n\n%.3f\n\n",spugA*180/PI);
+    printf("ЗНАЧЕНИЕ СФЕРИЧЕСКОГО УГЛА B\n\n%.3f\n\n",spugB*180/PI);
+    printf("ЗНАЧЕНИЕ СФЕРИЧЕСКОГО УГЛА C\n\n%.3f\n\n",spugC*180/PI);
+    printf("ЗНАЧЕНИЕ ПАРАМЕТРА КОНТРОЛЯ СУММЫ ДЕЛЬТ\n\n%.9f\n\n",sumDelta*180/PI*3600);
+    printf("ЗНАЧЕНИЕ ПАРАМЕТРА КОНТРОЛЯ СУММЫ УГЛОВ\n\n%.9f\n\n",sumUG*180/PI);
+    printf("ЗНАЧЕНИЕ ПАРАМЕТРА КОНТРОЛЯ СУММЫ СФЕРИЧЕСКИХ УГЛОВ\n\n%.9f\n\n",sumSPHERUG*180/PI);
+    float deltaH=abs(Hc-Ha);
+    float Hm=(Hc+Ha)/2;
+    float Rm=aWGS*(1-0.5*eks2WGS*cos(2*Bm));
+    float d=sqrt((S*S)-(deltaH*deltaH))*(1-(Hm/Rm));
+    float S0=d+((d*d*d)/(24*Rm*Rm));
+    float deltaS=S0-S;
+    printf("\n\n-------РЕДУЦИРОВАНИЕ НАКЛОННОГО РАССТОЯНИЯ-------\n\n");
+    printf("ЗНАЧЕНИЕ ПАРАМЕТРА deltaH В МЕТРАХ\n\n%.9f\n\n",deltaH);
+    printf("ЗНАЧЕНИЕ ПАРАМЕТРА Hm В МЕТРАХ\n\n%.9f\n\n",Hm);
+    printf("ЗНАЧЕНИЕ ПАРАМЕТРА Rm В МЕТРАХ\n\n%.9f\n\n",Rm);
+    printf("ЗНАЧЕНИЕ ПАРАМЕТРА d В МЕТРАХ\n\n%.9f\n\n",d);
+    printf("ЗНАЧЕНИЕ ПАРАМЕТРА S0 В МЕТРАХ\n\n%.9f\n\n",S0);
+    printf("ЗНАЧЕНИЕ ПАРАМЕТРА deltaS В МЕТРАХ\n\n%.9f\n\n",deltaS);
+  };  
+};
+int main() {
+   Ellipsoid WGS84;
+   printf("-------ЛАБОРАТОРНАЯ РАБОТА НОМЕР 8. Редуцирование треугольника с поверхности Земли на поверхность эллипсоида. ВАРИАНТ НОМЕР 3.-------\n\n ");
+   WGS84.reducirovanie();
+   
+    return 0;
+}
